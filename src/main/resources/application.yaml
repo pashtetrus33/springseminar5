@@ -1,0 +1,17 @@
+server:
+  port: 8181
+spring:
+  datasource:
+    url: jdbc:postgresql://51.250.22.199:5432/postgresdb?currentSchema=tasks_schema
+    username: postgresuser
+    password: secret123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: true
+  liquibase:
+    change-log: classpath:liquibase/db.changelog.yaml
+    enabled: true
+    default-schema: tasks_schema
+
+springdoc:
+  override-with-generic-response: false
