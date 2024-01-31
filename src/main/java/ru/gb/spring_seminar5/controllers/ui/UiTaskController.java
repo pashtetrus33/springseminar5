@@ -1,13 +1,18 @@
 package ru.gb.spring_seminar5.controllers.ui;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.spring_seminar5.models.Task;
+import ru.gb.spring_seminar5.models.dto.TaskDto;
 import ru.gb.spring_seminar5.services.TaskService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/tasks")
@@ -66,5 +71,12 @@ public class UiTaskController {
         model.addAttribute("task", new Task());
         model.addAttribute("updatedId", id);
         return "updateTask";
+    }
+
+
+    @GetMapping("/status/{status}")
+    public String getTasksByStatus(@PathVariable("status") String sts, Model model) {
+        model.addAttribute("tasks", taskService.getTasksByStatus(sts));
+        return "allTasksByCards";
     }
 }
