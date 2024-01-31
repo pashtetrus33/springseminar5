@@ -24,4 +24,4 @@
 Баканов Павел
 * **
 
-![Screenshot](https://github.com/pashtetrus33/springseminar5/assets/86385554/b68532e1-8479-49b9-b0ea-134384eb91cf)
+![Screenshot](https://github.com/pashtetrus33/springseminar5/assets/86385554/5afdc933-8a36-4c17-83b9-e5858294eaa6)
