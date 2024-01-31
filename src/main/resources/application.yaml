@@ -1,5 +1,5 @@
 server:
-  port: 8181
+  port: 8282
 spring:
   datasource:
     url: jdbc:postgresql://51.250.22.199:5432/postgresdb?currentSchema=tasks_schema
