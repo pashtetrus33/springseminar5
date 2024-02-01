@@ -21,6 +21,9 @@
 - Дата создания (автоматически устанавливается при создании задачи)
  */
 
+  #5
+![Screenshot](https://github.com/pashtetrus33/springseminar5/assets/86385554/5afdc933-8a36-4c17-83b9-e5858294eaa6)
+
 ## Домашняя работа 6
 
 <a href="http://51.250.22.199:8282/tasks" target="_blank">Ссылка на сервис</a>
@@ -36,6 +39,3 @@
 * **
 #6
 ![Безымянный](https://github.com/pashtetrus33/springseminar5/assets/86385554/65bf2289-4e2e-45d5-b77d-db8249363554)
-
-#5
-![Screenshot](https://github.com/pashtetrus33/springseminar5/assets/86385554/5afdc933-8a36-4c17-83b9-e5858294eaa6)
