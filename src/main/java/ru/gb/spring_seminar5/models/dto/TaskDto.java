@@ -2,8 +2,11 @@ package ru.gb.spring_seminar5.models.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import ru.gb.spring_seminar5.models.Executor;
 import ru.gb.spring_seminar5.models.Status;
 
 import java.time.LocalDateTime;
@@ -33,4 +36,6 @@ public class TaskDto {
      * Статус задачи.
      */
     private Status status;
+
+    private Executor executor;
 }

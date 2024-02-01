@@ -12,8 +12,10 @@ import ru.gb.spring_seminar5.repositoreis.TaskRepository;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Сервис работы с задачами
@@ -24,11 +26,12 @@ import java.util.Objects;
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
+    private final ExecutorService executorService;
 
     @Override
     public List<Task> getAllTasks() {
         log.info("Get all tasks command");
-        return taskRepository.findAll();
+        return taskRepository.findAll().stream().sorted(Comparator.comparing(Task:: getCreatedAt)).toList();
     }
 
     @Override
@@ -108,5 +111,17 @@ public class TaskServiceImpl implements TaskService {
             }
         }
         throw new StatusNotFoundException("Status " + sts + " is not found.");
+    }
+
+    @Override
+    public Task assignExecutor(Long taskId, Long id) {
+        log.info("Assign executor to the task #" + taskId + "executor id #" + id);
+        if (taskRepository.findById(taskId).isPresent()) {
+            Task task = taskRepository.findById(taskId).get();
+            task.setExecutor(executorService.getExecutorById(id));
+            taskRepository.save(task);
+            return task;
+        }
+        throw new TaskNotFoundException("Task with id " + id + " is not found.");
     }
 }

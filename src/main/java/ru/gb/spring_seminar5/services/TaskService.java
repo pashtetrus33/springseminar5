@@ -1,10 +1,8 @@
 package ru.gb.spring_seminar5.services;
 
-import ru.gb.spring_seminar5.models.Status;
 import ru.gb.spring_seminar5.models.Task;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TaskService {
     List<Task> getAllTasks();
@@ -20,4 +18,6 @@ public interface TaskService {
     Task updateStatus(Long id);
 
     List<Task> getTasksByStatus(String status);
+
+    Task assignExecutor(Long taskId, Long id);
 }

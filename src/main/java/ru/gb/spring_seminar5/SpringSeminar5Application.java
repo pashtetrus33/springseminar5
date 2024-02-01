@@ -21,11 +21,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 - Статус (одно из значений: "не начата", "в процессе", "завершена")
 - Дата создания (автоматически устанавливается при создании задачи)
  */
+/*
+Семинар №6
+Создайте RESTful API на базе Spring Boot и Spring Web для управления библиотекой.
+Основной сущностью будет "Читатель" (Reader) и "Книга" (Book). Необходимо учитывать, что одна книга может быть взята только одним читателем, но один читатель может взять несколько книг.
+
+Сущность "Читатель":
+- ID (тип Long и автоинкрементное)
+- Имя (тип String, не может быть пустым)
+
+Сущность "Книга":
+- ID (тип Long и автоинкрементное)
+- Название (тип String, не может быть пустым)
+- Автор (тип String)
+- Читатель (ссылка на сущность "Читатель", может быть null)
+ */
 @SpringBootApplication
 public class SpringSeminar5Application {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringSeminar5Application.class, args);
     }
-
 }

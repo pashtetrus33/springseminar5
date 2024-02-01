@@ -1,17 +1,15 @@
 package ru.gb.spring_seminar5.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Builder;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
 /**
  * Сущность"Задача"
+ *
  * @id -идентификатор
  * @name -наименование(заголовок)
  * @description -описание
@@ -44,4 +42,8 @@ public class Task {
 
     @Column(name = "date_creation")
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "executor_id")
+    private Executor executor;
 }
