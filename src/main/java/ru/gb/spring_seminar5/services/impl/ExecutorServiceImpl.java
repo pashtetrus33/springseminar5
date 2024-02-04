@@ -1,4 +1,4 @@
-package ru.gb.spring_seminar5.services;
+package ru.gb.spring_seminar5.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.gb.spring_seminar5.exceptions.ExecutorNotFoundException;
 import ru.gb.spring_seminar5.models.Executor;
 import ru.gb.spring_seminar5.repositoreis.ExecutorRepository;
+import ru.gb.spring_seminar5.services.ExecutorService;
 
 import java.util.List;
 

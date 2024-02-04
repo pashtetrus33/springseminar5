@@ -1,6 +1,7 @@
 package ru.gb.spring_seminar5.repositoreis;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.gb.spring_seminar5.models.Executor;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Репозиторий для сущности executor.
  */
+@Repository
 public interface ExecutorRepository extends JpaRepository<Executor, Long> {
 
     /**

@@ -1,4 +1,4 @@
-package ru.gb.spring_seminar5.services;
+package ru.gb.spring_seminar5.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +8,8 @@ import ru.gb.spring_seminar5.exceptions.TaskNotFoundException;
 import ru.gb.spring_seminar5.models.Status;
 import ru.gb.spring_seminar5.models.Task;
 import ru.gb.spring_seminar5.repositoreis.TaskRepository;
+import ru.gb.spring_seminar5.services.ExecutorService;
+import ru.gb.spring_seminar5.services.TaskService;
 
 import java.text.DateFormat;
 import java.time.LocalDateTime;
