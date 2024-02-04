@@ -33,7 +33,8 @@
 1. Добавить к задачам исполнителя
 2. Добавить документацию к API
 
-
+#6
+![Безымянный](https://github.com/pashtetrus33/springseminar5/assets/86385554/65bf2289-4e2e-45d5-b77d-db8249363554)
 
 ## Домашняя работа 7
 
@@ -52,5 +53,3 @@
 #7
 ![GetToken](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/29ec5e11-6139-466b-99e8-eac6e403d5aa)
 ![TokenTest](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/0e9eeaa2-b914-4bba-ad64-5a68de6763d1)
-#6
-![Безымянный](https://github.com/pashtetrus33/springseminar5/assets/86385554/65bf2289-4e2e-45d5-b77d-db8249363554)
