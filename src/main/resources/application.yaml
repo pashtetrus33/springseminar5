@@ -19,6 +19,6 @@ springdoc:
     path: /api-docs
 
 my:
-  SECRET: ${SECRET}
+  secret: ${SECRET}
   #JWT token validity in seconds
-  JWT_TOKEN_VALIDITY: ${JWT_TOKEN_VALIDITY}
+  jwt_token_validity: ${JWT_TOKEN_VALIDITY}

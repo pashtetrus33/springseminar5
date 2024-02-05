@@ -17,9 +17,9 @@ import java.util.function.Function;
 public class JwtUtil {
 
     @Value("${my.secret}")
-    private String SECRET;
+    private String SECRET ;
 
-    @Value("${my.JWT_TOKEN_VALIDITY}")
+    @Value("${my.jwt_token_validity}")
     private long JWT_TOKEN_VALIDITY;
 
     public Date extractExpiration(String token) {

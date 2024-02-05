@@ -1,5 +1,6 @@
 package ru.gb.spring_seminar5.security;
 
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
