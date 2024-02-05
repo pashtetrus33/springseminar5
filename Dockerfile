@@ -16,6 +16,6 @@ FROM amazoncorretto:17.0.7-alpine
 COPY --from=MAVEN_BUILD /target/spring_seminar5-0.0.1-SNAPSHOT.jar /spring_seminar5-0.0.1-SNAPSHOT.jar
 
 # instruction for open port
-EXPOSE 8181
+EXPOSE 8282
 # set the startup command to execute the jar
 CMD ["java","-jar", "/spring_seminar5-0.0.1-SNAPSHOT.jar"]
