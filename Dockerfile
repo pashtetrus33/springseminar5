@@ -6,8 +6,8 @@ LABEL maintainer="Pavel Bakanov"
 COPY ./ ./
 
 # package our application code without tests
-RUN mvn package -Dmaven.test.skip
-#RUN mvn clean package
+#RUN mvn package -Dmaven.test.skip
+RUN mvn clean package
 
 # the second stage of our build will use open jdk 11
 FROM amazoncorretto:17.0.7-alpine
