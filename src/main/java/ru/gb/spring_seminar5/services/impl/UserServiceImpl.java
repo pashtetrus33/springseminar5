@@ -20,7 +20,6 @@ import ru.gb.spring_seminar5.utils.Utils;
 import java.util.Map;
 import java.util.Objects;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -36,7 +35,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
-        log.info("SignUp for map: {}", requestMap);
         try {
             if (validateSignUpMap(requestMap)) {
                 User user = userRepository.findByEmail(requestMap.get(EMAIL));
@@ -57,7 +55,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<String> login(Map<String, String> requestMap) {
-        log.info("Login method is called: " + requestMap);
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(requestMap.get(EMAIL), requestMap.get(PASSWORD))
@@ -71,7 +68,7 @@ public class UserServiceImpl implements UserService {
                 }
             }
         } catch (Exception exception) {
-            log.error("Error: " + exception);
+            exception.printStackTrace();
         }
         return new ResponseEntity<>("{\"message\":\"" + "Incorrect credentials " + "\"}", HttpStatus.BAD_REQUEST);
     }

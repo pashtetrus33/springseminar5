@@ -1,6 +1,9 @@
 server:
   port: 8282
 spring:
+  output:
+    ansi:
+      enabled: DETECT
   datasource:
     url: jdbc:postgresql://51.250.22.199:5432/postgresdb?currentSchema=tasks_schema
     username: postgresuser
@@ -22,3 +25,12 @@ my:
   secret: springboot
   #JWT token validity in seconds
   jwt_token_validity: 300
+
+logging:
+  level:
+    root: WARN
+    org.springframework.web: WARN
+    org.springframework.org.springframework.context: WARN
+    ru.gb.spring_seminar5: INFO
+    org.hibernate: WARN
+  file.name: logs/application.log

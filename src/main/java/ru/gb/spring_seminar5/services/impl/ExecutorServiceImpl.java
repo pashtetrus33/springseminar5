@@ -1,8 +1,10 @@
 package ru.gb.spring_seminar5.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.event.Level;
 import org.springframework.stereotype.Service;
+import ru.gb.spring_seminar5.aspects.LoggedExecution;
+import ru.gb.spring_seminar5.aspects.TrackUserAction;
 import ru.gb.spring_seminar5.exceptions.ExecutorNotFoundException;
 import ru.gb.spring_seminar5.models.Executor;
 import ru.gb.spring_seminar5.repositoreis.ExecutorRepository;
@@ -14,34 +16,33 @@ import java.util.List;
 /**
  * Сервис работы с задачами
  */
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ExecutorServiceImpl implements ExecutorService {
 
     private final ExecutorRepository executorRepository;
 
+    @TrackUserAction(level = Level.INFO)
     @Override
     public List<Executor> getAllExecutors() {
-        log.info("Get all executors command");
         return executorRepository.findAll();
     }
 
+    @LoggedExecution
+    @TrackUserAction(level = Level.INFO)
     @Override
     public Executor getExecutorById(Long id) {
-        log.info("Get executor by id " + id + " command");
         return executorRepository.findById(id).orElseThrow(() -> new ExecutorNotFoundException("Executor: " + id + " not found!"));
     }
 
+
     @Override
     public Executor createExecutor(Executor executor) {
-        log.info("Create executor command");
         return executorRepository.save(executor);
     }
 
     @Override
     public Executor updateExecutor(Long id, Executor executor) {
-        log.info("Update executor with id " + id + " command");
         if (executorRepository.findById(id).isPresent()) {
             Executor updatedExecutor = executorRepository.findById(id).get();
             updatedExecutor.setName(executor.getName());
@@ -53,12 +54,11 @@ public class ExecutorServiceImpl implements ExecutorService {
         throw new ExecutorNotFoundException("Executor with id " + id + " is not found.");
     }
 
+    @LoggedExecution
     @Override
     public void deleteExecutor(Long id) {
-        log.info("Delete executor with id " + id + " command");
         if (executorRepository.findById(id).isPresent()) {
             executorRepository.deleteById(id);
-            log.info("Delete executor with id " + id + " success");
             return;
         }
         throw new ExecutorNotFoundException("Executor with id " + id + " is not found.");
@@ -66,13 +66,11 @@ public class ExecutorServiceImpl implements ExecutorService {
 
     @Override
     public List<Executor> getExecutorsByAge(int age) {
-        log.info("Get executors by age " + age + " command");
         return executorRepository.findByAge(age);
     }
 
     @Override
     public List<Executor> getExecutorsByName(String name) {
-        log.info("Get executors by name " + name + " command");
         return executorRepository.findByName(name);
     }
 }
