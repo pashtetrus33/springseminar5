@@ -45,6 +45,9 @@
 1. Используя Spring Security, добавьте аутентификацию и авторизацию в ваше приложение.
 2. Реализуйте генерацию и валидацию JWT-токенов.
 
+#7
+![GetToken](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/29ec5e11-6139-466b-99e8-eac6e403d5aa)
+![TokenTest](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/0e9eeaa2-b914-4bba-ad64-5a68de6763d1)
 
 ## Домашняя работа 8
 
@@ -61,9 +64,9 @@
 3. Примените аннотацию @TrackUserAction к нескольким методам в слое сервиса.
 4. Результаты регистрации сохраните в лог-файл.
 
+#8
+![111](https://github.com/pashtetrus33/springseminar5-6-7-8/assets/86385554/8af47f48-f489-4d1e-b980-ba4e1ca40946)
+
 ### Автор:
 Баканов Павел
 * **
-#7
-![GetToken](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/29ec5e11-6139-466b-99e8-eac6e403d5aa)
-![TokenTest](https://github.com/pashtetrus33/springseminar5-6-7/assets/86385554/0e9eeaa2-b914-4bba-ad64-5a68de6763d1)
