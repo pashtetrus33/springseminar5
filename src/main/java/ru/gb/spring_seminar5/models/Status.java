@@ -14,7 +14,8 @@ public enum Status {
 
     COMPLETED("Завершена"),
     IN_PROGRESS("В процессе"),
-    NOT_STARTED("Не начата");
+    NOT_STARTED("Не начата"),
+    URGENT("Срочная");
 
     private String title;
 

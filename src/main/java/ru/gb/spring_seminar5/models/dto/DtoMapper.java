@@ -16,13 +16,17 @@ public class DtoMapper {
      * @return объект dto.
      */
     public TaskDto toDto(Task task) {
-        TaskDto taskDto = new TaskDto();
-        taskDto.setId(task.getId());
-        taskDto.setTitle(task.getTitle());
-        taskDto.setDescription(task.getDescription());
-        taskDto.setCreatedAt(task.getCreatedAt());
-        taskDto.setStatus(task.getStatus());
-        taskDto.setExecutor(task.getExecutor());
+
+        TaskDto taskDto = new TaskDto
+                .TaskDtoBuilder()
+                .withId(task.getId())
+                .withTitle(task.getTitle())
+                .withDescription(task.getDescription())
+                .withCreatedAt(task.getCreatedAt())
+                .withStatus(task.getStatus())
+                .withExecutor(task.getExecutor())
+                .build();
+
         return taskDto;
     }
 

@@ -77,9 +77,10 @@ public class JwtFilter extends OncePerRequestFilter {
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/users/login", "/users/signup", "/users/forgotPassword", "/tasks/**", "/executors/**")
                 .permitAll()
-                .requestMatchers("/api/tasks/**").hasAnyAuthority("user", "admin")
-                .requestMatchers("/api/executors/**").hasAnyAuthority("admin")
-                .anyRequest().denyAll());
+                //.requestMatchers("/api/tasks/**").hasAnyAuthority("user", "admin")
+               // .requestMatchers("/api/executors/**").hasAnyAuthority("admin")
+                .anyRequest().permitAll());
+                //.anyRequest().denyAll());
 
         http.csrf(AbstractHttpConfigurer::disable);
         return http.build();

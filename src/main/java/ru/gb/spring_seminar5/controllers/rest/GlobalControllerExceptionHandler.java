@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import ru.gb.spring_seminar5.exceptions.ExecutorNotFoundException;
 import ru.gb.spring_seminar5.exceptions.TaskNotFoundException;
+import ru.gb.spring_seminar5.exceptions.TaskTypeNotFoundException;
 
 /**
  * Класс перехватывающий исключения
@@ -25,6 +26,19 @@ public class GlobalControllerExceptionHandler {
     @ExceptionHandler(TaskNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handlerTaskNotFound(RuntimeException ex) {
+
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     * Обработка исключения при отсутствии типа задачи.
+     *
+     * @param ex объект исключения.
+     * @return ответ с ошибкой.
+     */
+    @ExceptionHandler(TaskTypeNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handlerTaskTypeNotFound(RuntimeException ex) {
 
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }

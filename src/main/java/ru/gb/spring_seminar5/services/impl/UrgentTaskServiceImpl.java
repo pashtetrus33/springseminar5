@@ -30,7 +30,7 @@ import java.util.Objects;
 @Service
 @Scope("singleton")
 @RequiredArgsConstructor
-public class TaskServiceImpl implements TaskService {
+public class UrgentTaskServiceImpl implements TaskService {
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     private final TaskRepository taskRepository;
@@ -48,7 +48,7 @@ public class TaskServiceImpl implements TaskService {
     @TrackUserAction(level = Level.INFO)
     @Override
     public List<Task> getAllTasks() {
-        return taskRepository.findAll().stream().sorted(Comparator.comparing(Task::getStatus)).toList();
+        return taskRepository.findAll().stream().sorted(Comparator.comparing(Task::getCreatedAt)).toList();
     }
 
     @TrackUserAction(level = Level.INFO)
@@ -64,7 +64,8 @@ public class TaskServiceImpl implements TaskService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedString = ldt.format(formatter);
         task.setCreatedAt(LocalDateTime.parse(formattedString, formatter));
-        task.setStatus(Status.NOT_STARTED);
+        task.setStatus(Status.URGENT);
+        task.setExecutor(executorService.getExecutorById(1L));
         return taskRepository.save(task);
     }
 
@@ -105,11 +106,11 @@ public class TaskServiceImpl implements TaskService {
     @TrackUserAction(level = Level.INFO)
     @Override
     public Task updateStatus(Long id) {
-        Status currentStatus = Status.COMPLETED;
+        Status currentStatus;
         if (taskRepository.findById(id).isPresent()) {
             Task task = taskRepository.findById(id).get();
-            if (Objects.requireNonNull(task.getStatus()) == Status.NOT_STARTED) {
-                currentStatus = Status.NOT_STARTED;
+            if (Objects.requireNonNull(task.getStatus()) == Status.URGENT) {
+                currentStatus = Status.URGENT;
                 task.setStatus(Status.IN_PROGRESS);
             } else {
                 currentStatus = Status.IN_PROGRESS;

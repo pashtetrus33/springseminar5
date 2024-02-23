@@ -10,3 +10,5 @@ insert into tasks (title, description, status, date_creation, executor_id)
 values ('Понедельник', 'Сходить в парикмахерскую', 'NOT_STARTED', '2024-01-29 12:00:00', 1),
        ('Вторник','Сходить в магазин', 'COMPLETED', '2024-01-23 15:30:00', 1),
        ('Среда','Пойти на семинар', 'IN_PROGRESS', '2024-01-26 20:10:00',3);
+
+
